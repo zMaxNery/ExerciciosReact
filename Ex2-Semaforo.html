@@ -1,0 +1,92 @@
+<div class="pagina">
+    <div class="card">
+        <div class="center-circulo">
+            <div class="circulo"></div>
+            <p class="espc-circulo"></p>
+        </div>
+        <button class="btn-verde">Verde</button>
+        <button class="btn-amarelo">Amarelo</button>
+        <button class="btn-vermelho">Vermelho</button>
+    </div>
+</div>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .pagina {
+        background-image: url(img/fundo-login.jpg);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .card {
+        margin: 20px;
+        padding: 20px;
+        width: 300px;
+        height: 500px;
+        background-color: black;
+    }
+    .center-circulo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .espc-circulo {
+        height: 15px;
+    }
+    .circulo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+    .btn-verde {
+        background-color: green;
+    }
+    .btn-amarelo {
+        background-color: yellow;
+    }
+    .btn-vermelho {
+        background-color: red;
+    }
+    .bg-verde {
+        background-color: green;
+    }
+    .bg-amarelo {
+        background-color: yellow;
+    }
+    .bg-vermelho {
+        background-color: red;
+    }
+</style>
+
+<script>
+    const circulo = document.querySelector('.circulo');
+    const btnVerde = document.querySelector('.btn-verde');
+    const btnAmarelo = document.querySelector('.btn-amarelo');
+    const btnVermelho = document.querySelector('.btn-vermelho');
+
+    const limparCores = () => {
+        circulo.classList.remove("bg-verde", "bg-amarelo", "bg-vermelho");
+    };
+
+    btnVerde.onclick = () => {
+        limparCores();
+        circulo.classList.add("bg-verde");
+    };
+    btnAmarelo.onclick = () => {
+        limparCores();
+        circulo.classList.add("bg-amarelo");
+    };
+    btnVermelho.onclick = () => {
+        limparCores();
+        circulo.classList.add("bg-vermelho");
+    };
+</script>
