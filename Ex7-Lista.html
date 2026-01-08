@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="pagina">
+            <div class="card">
+                <input type="text" class="input-lista" placeholder="Digite o que será adicionado na lista">
+                <button class="btn-adicionar">Adicionar</button>
+                <ul class="lista-tarefas"></ul>
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    html, body {
+        width: 100%;
+        height: 100%;
+    }
+    .pagina {
+        width: 100%;
+        height: 100%;
+        background-image: url(img/fundo-login.jpg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .card {
+        margin: 20px;
+        padding: 20px;
+        width: 300px;
+        height: 500px;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+    }
+    .input-lista {
+        border-color: blue;
+        border-radius: 5px;
+        width: 260px;
+        height: 30px;
+        font-size: 30;
+    }
+    .btn-adicionar {
+        width: 100px;
+        height: 35px;
+        background-color: wheat;
+        font-size: 20px;
+    }
+    .lista-tarefas {
+        font-size: 16px;
+    }
+</style>
+
+<script>
+    
+
+    const input = document.querySelector('.input-lista');
+    const lista = document.querySelector('.lista-tarefas');
+
+    const btnAdicionar = document.querySelector('.btn-adicionar');
+
+    btnAdicionar.onclick = () => {
+        const item = document.createElement('li');
+
+        item.innerText = input.value;
+
+        lista.appendChild(item);
+
+        input.value = "";
+    }
+
+</script>
