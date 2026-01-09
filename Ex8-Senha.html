@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="pagina">
+            <div class="card">
+                <input type="password" class="senha" placeholder="Valide sua senha">
+                <span class="aviso"></span>
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    html, body {
+        width: 100%;
+        height: 100%;
+    }
+    .pagina {
+        width: 100%;
+        height: 100%;
+        background-image: url(https://4kwallpapers.com/images/walls/thumbs_3t/5571.jpg);
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .card {
+        margin: 20px;
+        padding: 20px;
+        width: 300px;
+        height: 500px;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .senha {
+        width: 200px;
+        height: 30px;
+        font-size: 20px;
+    }
+    .aviso {
+        font-size: 14px;
+        font-weight: bold;
+    }
+</style>
+
+<script>
+    const inputSenha = document.querySelector('.senha');
+
+    const aviso = document.querySelector('.aviso');
+
+    inputSenha.oninput = () => {
+        const tamSenha = inputSenha.value.length;
+
+        if (tamSenha >= 8) {
+
+            aviso.style.color = "green";
+            aviso.innerText = "Senha segura!";
+
+        } else if (tamSenha < 8) {
+
+            aviso.style.color = "red";
+            aviso.innerText = "A senha precisa ter ao menos 8 caracteres";
+
+        }
+    };
+</script>

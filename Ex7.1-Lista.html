@@ -6,7 +6,7 @@
     <body>
         <div class="pagina">
             <div class="card">
-                <button class="btn-gerar">Gerar</button>
+                <button class="btn-gerar">Gerar Título</button>
                 <h1 class="titulo"></h1>
             </div>
         </div>
@@ -27,7 +27,9 @@
     .pagina {
         width: 100%;
         height: 100%;
-        background-image: url(img/fundo-login.jpg);
+        background-image: url(https://4kwallpapers.com/images/walls/thumbs_3t/5571.jpg);
+        background-position: center;
+        background-size: cover;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -39,9 +41,28 @@
         width: 300px;
         height: 500px;
         background-color: white;
+        border-radius: 10px;
+    }
+    .btn-gerar {
+        width: 200px;
+        height: 30px;
+        font-size: 20px;
+        border-radius: 5px;
+        background-color: aqua;
     }
 </style>
 
 <script>
+    const btnGerar = document.querySelector('.btn-gerar');
+
+    const titulo = document.querySelector('.titulo');
+
+    btnGerar.onclick = () => {
+        const frase = document.createElement('li');
+
+        frase.innerText = "Sou novo aquiiiii";
+
+        titulo.appendChild(frase);
+    };
 
 </script>
