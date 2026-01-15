@@ -13,9 +13,6 @@
 </html>
 
 <style>
-    .pagina {
-        background-image: url(img/fundo-login.jpg);
-    }
     .container-filmes {
         margin: 20px;
         padding: 20px;
@@ -27,25 +24,40 @@
 </style>
 
 <script>
-    const meusFilmes = [
+    const listaFilmes = [
         {
             titulo: "Indiana Jones",
             ano: 2000,
-            capa: URL(),
+            capa: "https://raw.githubusercontent.com/zMaxNery/ExerciciosReact/main/img/filme-indianaJones.jpeg",
         },
         {
             titulo: "Moana 2",
-            ano: 2005,
-            capa: URL(),
+            ano: 2020,
+            capa: "https://raw.githubusercontent.com/zMaxNery/ExerciciosReact/main/img/filme-moana2.jpeg",
         },
         {
             titulo: "Avatar 3",
             ano: 2026,
-            capa: URL(),
+            capa: "https://raw.githubusercontent.com/zMaxNery/ExerciciosReact/main/img/filme-avatar3.jpg",
         }
     ];
 
-    const container = document.querySelector('.containet-filmes');
+    const container = document.querySelector('.container-filmes');
+    
+    listaFilmes.forEach((filme) => {
+        const card = document.createElement('div');
+        const img = document.createElement('img');
+        const h2 = document.createElement('h2');
 
+        img.src = filme.capa;
+        img.style.width = "85px";
+        h2.innerText = filme.titulo;
+
+        card.appendChild(img);
+        card.appendChild(h2);
+
+        container.appendChild(card);
+
+    });
 
 </script>
