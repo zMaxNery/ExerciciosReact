@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="pagina">
+            <div class="card">
+                <input type="text" class="input-numero" placeholder="Digite até qual valor deseja filtrar">
+                <button class="btn-filtro">Filtrar itens baratos</button>
+                <div class="area-lista"></div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+    .input-numero {
+        width: 250px;
+        height: 30px;
+    }
+</style>
+
+<script>
+    const card = document.querySelector('.area-lista');
+    const btnFiltro = document.querySelector('.btn-filtro');
+
+    const input = document.querySelector('.input-numero');
+
+    const produtos = [
+        { nome: "Teclado", preco: 150 },
+        { nome: "Mouse", preco: 80 },
+        { nome: "Monitor", preco: 900 },
+        { nome: "Fone", preco: 50 },
+        { nome: "Webcam", preco: 300 }
+    ];
+
+    btnFiltro.onclick = () => {
+        card.innerHTML = "";
+
+        const valorMax = Number(input.value);
+
+        const barato = produtos.filter((p) => {
+            return p.preco < valorMax;
+        });
+
+        barato.forEach((brt) => {
+            const div = document.createElement('div');
+
+            div.innerText = "Item: " + brt.nome + " - R$" + brt.preco;
+
+            card.appendChild(div);
+
+        });
+
+    };
+
+</script>

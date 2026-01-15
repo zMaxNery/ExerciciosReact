@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="pagina">
+            <div class="card">
+                <input type="text" class="input-tarefa" placeholder="Tarefa para incluir na lista">
+                <button class="btn-add">Adicionar</button>
+                <ul class="lista-tarefas"></ul>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    const input = document.querySelector('.input-tarefa');
+    const btnAdd = document.querySelector('.btn-add');
+
+    const lista = document.querySelector('.lista-tarefas');
+
+    btnAdd.onclick = () => {
+        if (input.value === "") {
+            alert("Precisa digitar algo para adicionar!!!");
+            return;
+        }
+        const li = document.createElement('li');
+
+        li.innerText = input.value;
+
+        lista.appendChild(li);
+
+        input.value = "";
+    };
+</script>
