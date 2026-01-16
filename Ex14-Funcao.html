@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="pagina">
+            <div class="card">
+                <input type="text" class="input-nome" placeholder="Insira o Nome">
+                <input type="text" class="input-sobrenome" placeholder="Insira seu Sobrenome">
+                <button class="btn-executar">Executar</button>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    const inputNome = document.querySelector('.input-nome');
+    const inputSobrenome = document.querySelector('.input-sobrenome');
+    const btnExecutar = document.querySelector('.btn-executar');
+
+    btnExecutar.onclick = () => {
+        const resultado = montarFrase(inputNome.value, inputSobrenome.value);
+
+        alert(resultado);
+    };
+
+    const montarFrase = (nome, sobreNome) => {
+        return "Seu nome é " + nome + " " + sobreNome + "!!!";
+    };
+</script>

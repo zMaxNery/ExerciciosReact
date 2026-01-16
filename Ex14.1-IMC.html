@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="pagina">
+            <div class="card">
+                <input type="text" class="input-peso" placeholder="Insira seu Peso">
+                <input type="text" class="input-altura" placeholder="Insira sua Altura">
+                <button class="btn-calcular">Calcular IMC</button>
+                <div class="resultado"></div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    const inputPeso = document.querySelector('.input-peso');
+    const inputAltura = document.querySelector('.input-altura');
+    const btnCalcular = document.querySelector('.btn-calcular');
+
+    const card = document.querySelector('.card');
+
+    btnCalcular.onclick = () => {
+        const peso = Number(inputPeso.value);
+        const altura = Number(inputAltura.value) / 100;
+
+        const resultado = calculaIMC(peso, altura);
+
+        const div = document.querySelector('.resultado');
+        
+        div.innerText = "Seu IMC é " + resultado.valor + ". Sua classificação é " + resultado.status;
+
+        card.appendChild(div);
+
+    };
+
+    const calculaIMC = (peso, altura) => {
+        const IMC = Number(peso / (altura * altura));
+
+        const classificacao = classeIMC(IMC);
+
+        return { valor: IMC.toFixed(2), status: classificacao };
+    };
+
+    const classeIMC = (IMC) => {
+        let classificacao;
+
+        if (IMC < 18.5) {
+            classificacao = "Abaixo do peso";
+        } else if (IMC >= 18.5 && IMC <= 24.9) {
+            classificacao = "Peso normal";
+        } else if (IMC >= 25 && IMC <= 29.9) {
+            classificacao = "Sobrepeso";
+        } else {
+            classificacao = "Obesidade";
+        }
+
+        return classificacao;
+    };
+</script>
