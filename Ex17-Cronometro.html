@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="pagina">
+            <div class="card">
+                <h1 class="relogio">0</h1>
+                <button class="btn-start">Começar</button>
+                <button class="btn-pause">Pausar</button>
+                <button class="btn-zerar">Zerar</button>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    let segundos = 0;
+    let cronometro;
+
+    const btnStart = document.querySelector('.btn-start');
+    const btnPause = document.querySelector('.btn-pause');
+    const btnZerar = document.querySelector('.btn-zerar');
+
+    const relogio = document.querySelector('.relogio');
+
+    btnStart.onclick = () =>{
+        clearInterval(cronometro);
+
+        cronometro = setInterval(() => {
+            segundos ++;
+            relogio.innerText = segundos;
+        }, 1000);
+    };
+
+    btnPause.onclick = () =>{
+        clearInterval(cronometro);
+    };
+
+    btnZerar.onclick = () =>{
+        clearInterval(cronometro);
+        segundos = 0;
+        relogio.innerText = segundos
+    };
+</script>
