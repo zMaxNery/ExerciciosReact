@@ -21,15 +21,32 @@
     const inputList = document.querySelector('.input-list');
     const btnAdd = document.querySelector('.btn-add');
 
-    const itemAdd = inputList.value;
+    const ul = document.querySelector('.list');
 
     btnAdd.onclick = () =>{
-        const taskAdd = createTask(itemAdd);
+        const taskName = inputList.value;
+
+        const taskAdd = createTask(taskName);
 
         tarefas.push(taskAdd);
+
+        renderTask;
     };
 
+    // Funções
     const createTask = (name) =>{
-        return {nome: name, id: Date.now()}
+        return {name: name, id: Date.now()};
+    };
+
+    const renderTask = () =>{
+        ul.innerHTML = "";
+
+        tarefas.forEach((item) =>{
+            const li = document.createElement('li');
+
+            li.innerText = tarefas.name;
+
+            ul.appendChild(li);
+        });
     };
 </script>
