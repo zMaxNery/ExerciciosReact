@@ -30,7 +30,9 @@
 
         tarefas.push(taskAdd);
 
-        renderTask;
+        renderTask();
+
+        inputList.value = "";
     };
 
     // Funções
@@ -43,10 +45,13 @@
 
         tarefas.forEach((item) =>{
             const li = document.createElement('li');
+            const btnRemove = document.createElement('button');
 
-            li.innerText = tarefas.name;
+            li.innerText = item.name;
+            btnRemove.src = "https://raw.githubusercontent.com/zMaxNery/ExerciciosReact/main/img/botao-x.png"
 
             ul.appendChild(li);
+            ul.appendChild(btnRemove);
         });
     };
 </script>
