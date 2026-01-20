@@ -16,7 +16,9 @@
 </html>
 
 <script>
-    let tarefas = [];
+    const savedData = localStorage.getItem('taskList');
+
+    let tasks = [];
 
     const inputList = document.querySelector('.input-list');
     const btnAdd = document.querySelector('.btn-add');
@@ -29,7 +31,8 @@
 
         const taskAdd = createTask(taskName);
 
-        tarefas.push(taskAdd);
+        tasks.push(taskAdd);
+        localStorage.setItem('taskList', JSON.stringify(tasks));
 
         renderTask();
 
@@ -44,7 +47,7 @@
     const renderTask = () =>{
         ul.innerHTML = "";
 
-        tarefas.forEach((item) =>{
+        tasks.forEach((item) =>{
             const li = createLi(item);
             const btnRemove = removeButton();
             
@@ -53,10 +56,11 @@
             ul.appendChild(li);
 
             btnRemove.onclick = () =>{
-                tarefas = tarefas.filter(t => t.id !== item.id);
+                tasks = tasks.filter(t => t.id !== item.id);
+                localStorage.setItem('taskList', JSON.stringify(tasks));
+
                 renderTask();
             };
-
         });
     };
 
@@ -81,4 +85,10 @@
 
         return btnRemove;
     };
+
+    // Carregar dados salvos
+    if (savedData) {
+        tasks = JSON.parse(savedData);
+        renderTask();
+    }
 </script>
