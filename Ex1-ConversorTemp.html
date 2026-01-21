@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="pagina">
+            <div class="card">
+                <input type="text" class="input-temp" placeholder="Temperatura em Celsius">
+                <button class="btn-convert">Converter</button>
+                <p>A Temperatura em Fahrenheit é: </p>
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+.pagina {
+    width: 100%;
+    height: 100%;
+    background-image: url(https://raw.githubusercontent.com/zMaxNery/ExerciciosReact/main/img/fundo-login.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card {
+    margin: 20px;
+    padding: 20px;
+    width: 300px;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px;
+}
+</style>
+
+<script>
+    const inputTemp = document.querySelector('.input-temp');
+    const btnConvert = document.querySelector('.btn-convert');
+
+    const card = document.querySelector('.card');
+
+    const h1R = document.createElement('h1');
+
+    btnConvert.onclick = () => {
+        const result = celciusToF(Number(inputTemp.value));
+
+        h1R.innerText = result;
+
+        card.appendChild(h1R);
+
+        inputTemp.value = "";
+    };
+
+    const celciusToF = (celcius) => (celcius * 9/5)+32;
+</script>
